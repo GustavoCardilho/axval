@@ -1,6 +1,6 @@
-export const CpfMethod = (value: string) => {
+export const CpfMethod = (value: string | number) => {
   try {
-    let cpf = value;
+    let cpf = value.toString();
     cpf = cpf.replace(/[^\d]+/g, "");
     if (cpf.length !== 11) {
       return false;

@@ -1,7 +1,7 @@
 import { TypeVerifyInputDTO } from "../verify.dto";
 
 export const VerifyAmout = (
-  value: string,
+  value: string | number,
   type: TypeVerifyInputDTO,
   min?: number,
   max?: number

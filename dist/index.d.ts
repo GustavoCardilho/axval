@@ -1,8 +1,8 @@
-type TypeVerifyInputDTO = "email" | "phone" | "uuid" | "cpf" | TypeVerifyInputArray;
+type TypeVerifyInputDTO = "email" | "phone" | "uuid" | "cpf" | "string" | "number" | TypeVerifyInputArray;
 type TypeVerifyInputArray = Array<TypeVerifyInput | TypeVerifyInputArray>;
-type TypeVerifyInput = "email" | "phone" | "uuid" | "cpf";
+type TypeVerifyInput = "email" | "phone" | "uuid" | "cpf" | "string" | "number";
 interface VerifyInputDTO {
-    value: string;
+    value: string | number;
     type: TypeVerifyInputDTO;
     max?: number;
     min?: number;

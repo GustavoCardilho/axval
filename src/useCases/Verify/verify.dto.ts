@@ -1,9 +1,27 @@
-export type TypeVerifyInputDTO = "email" | "phone" | "uuid" | "cpf" | TypeVerifyInputArray;
-export type TypeVerifyInputArray = Array<TypeVerifyInput | TypeVerifyInputArray>;
-export type TypeVerifyInput = "email" | "phone" | "uuid" | "cpf";
+export type TypeVerifyInputDTO =
+  | "email"
+  | "phone"
+  | "uuid"
+  | "cpf"
+  | "string"
+  | "number"
+  | TypeVerifyInputArray;
+
+export type TypeVerifyInputArray = Array<
+  TypeVerifyInput | TypeVerifyInputArray
+>;
+
+export type TypeVerifyInput =
+  | "email"
+  | "phone"
+  | "uuid"
+  | "cpf"
+  | "string"
+  | "number";
+
 
 export interface VerifyInputDTO {
-  value: string;
+  value: string | number;
   type: TypeVerifyInputDTO;
   max?: number;
   min?: number;
