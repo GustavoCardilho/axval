@@ -1,6 +1,5 @@
-import { VerifyInputDTO } from "./repositories/methods/Verify/verify.dto";
-import { MethodsInput } from "./repositories/types";
-import { VerifyMethod } from "./repositories/methods/Verify";
+import { MethodsInput } from "./useCases/types";
+import { VerifyMethod } from "./useCases/Verify";
 
 class Axval implements MethodsInput {
   verify = VerifyMethod;
