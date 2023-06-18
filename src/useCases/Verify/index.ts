@@ -1,6 +1,5 @@
-import MethodsRepository from "../../repositories/MethodsRepository";
 import { VerifyAmout } from "./components/VerifyAmount";
-import { VerifyType } from "./components/verifyType";
+import { VerifyType } from "./components/VerifyType";
 import { ResponseVerifyDTO, VerifyInputDTO } from "./verify.dto";
 
 export const VerifyMethod = (input: VerifyInputDTO): ResponseVerifyDTO => {
