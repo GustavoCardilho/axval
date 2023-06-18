@@ -1,0 +1,2 @@
+var n=(e,u,r)=>new Promise((s,f)=>{var y=t=>{try{o(r.next(t))}catch(p){f(p)}},d=t=>{try{o(r.throw(t))}catch(p){f(p)}},o=t=>t.done?s(t.value):Promise.resolve(t.value).then(y,d);o((r=r.apply(e,u)).next())});var m=e=>n(void 0,null,function*(){return!0});var i=class{constructor(){this.verify=m}},c=new i;export{c as default};
+//# sourceMappingURL=index.js.map

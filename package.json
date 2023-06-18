@@ -1,10 +1,13 @@
 {
   "name": "primarylibkyoudan",
-  "version": "1.0.0",
+  "version": "1.0.13",
   "description": "Primeira biblioteca",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsup src/index.ts --format cjs --dts-resolve --minify --clean --sourcemap --dts && node ./dist/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsup src/index.ts --format cjs,esm --dts-resolve --minify --clean --sourcemap --legacy-output"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/Kyoudan/primarylib"
   },
-  "homepage": "https://github.com/Kyoudan/primarylib"
+  "homepage": "https://github.com/Kyoudan/primarylib",
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "tsup": "^7.0.0",
+    "typescript": "^5.1.3"
+  }
 }
