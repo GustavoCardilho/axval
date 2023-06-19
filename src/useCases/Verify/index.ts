@@ -1,5 +1,5 @@
-import { VerifyAmout } from "./components/VerifyAmount";
-import { VerifyType } from "./components/VerifyType";
+import { VerifyAmout } from "./Functions/VerifyAmount";
+import { VerifyType } from "./Functions/VerifyType";
 import { ResponseVerifyDTO, VerifyInputDTO } from "./verify.dto";
 
 export const VerifyMethod = (input: VerifyInputDTO): ResponseVerifyDTO => {
