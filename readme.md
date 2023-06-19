@@ -8,8 +8,9 @@
 <img src="https://cdn.discordapp.com/attachments/863861085471244288/1120334047256784907/image.png" width=250 />
 
 <br/>
+<br/>
 
-![slnm-version](https://img.shields.io/badge/version-v1.0.23-pink.svg)
+![slnm-version](https://img.shields.io/badge/version-v1.2.0-pink.svg)
 
 <a href="https://www.npmjs.com/package/axval">
   <img src="https://img.shields.io/badge/npm-axval-red.svg" alt="npm">
@@ -62,6 +63,19 @@ console.log(verify);
   "message": "O valor não é válido",
   "type": { "field": "email" }
 }
+```
+
+## 3. Explore methods
+
+```ts typescript
+import Axval from "../../index";
+
+const mask = Axval.mask({
+  mask: "000-000-000;000",
+  value: "2223334445",
+});
+
+console.log(mask)
 ```
 
 <br/><br/>
