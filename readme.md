@@ -6,6 +6,14 @@
 
 <div align='center'>
 <img src="https://cdn.discordapp.com/attachments/863861085471244288/1120334047256784907/image.png" width=250 />
+
+<br/>
+
+![slnm-version](https://img.shields.io/badge/version-v1.0.23-pink.svg)
+
+<a href="https://www.npmjs.com/package/axval">
+  <img src="https://img.shields.io/badge/npm-axval-red.svg" alt="npm">
+</a>
 </div>
 
 <br /><br /><hr />
@@ -16,6 +24,10 @@
 
 ```bash
 npm i axval
+```
+
+```bash
+yarn add axval
 ```
 
 ## 2. Get started
