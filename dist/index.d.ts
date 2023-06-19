@@ -1,3 +1,14 @@
+interface MaskInputDTO {
+    value: string;
+    mask: string;
+    onAfterMask?: (value: ResponseMaskDTO) => void;
+}
+interface ResponseMaskDTO {
+    success: boolean;
+    message: string;
+    data: string;
+}
+
 type FieldType = {
     field: "email" | "phone" | "cpf" | "uuid";
     format?: "string" | "number";
@@ -17,10 +28,12 @@ interface ResponseVerifyDTO {
 
 interface MethodsInput {
     verify: (input: VerifyInputDTO) => ResponseVerifyDTO;
+    mask: (input: MaskInputDTO) => ResponseMaskDTO;
 }
 
 declare class Axval implements MethodsInput {
     verify: (input: VerifyInputDTO) => ResponseVerifyDTO;
+    mask: (input: MaskInputDTO) => ResponseMaskDTO;
 }
 declare const _default: Axval;
 
