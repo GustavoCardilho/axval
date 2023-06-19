@@ -1,3 +1,8 @@
+type FieldType = {
+  field: "email" | "phone" | "cpf" | "uuid";
+  format?: "string" | "number";
+};
+
 export type TypeVerifyInputDTO =
   | "email"
   | "phone"
@@ -5,19 +10,7 @@ export type TypeVerifyInputDTO =
   | "cpf"
   | "string"
   | "number"
-  | TypeVerifyInputArray;
-
-export type TypeVerifyInputArray = Array<
-  TypeVerifyInput | TypeVerifyInputArray
->;
-
-export type TypeVerifyInput =
-  | "email"
-  | "phone"
-  | "uuid"
-  | "cpf"
-  | "string"
-  | "number";
+  | FieldType;
 
 export interface VerifyInputDTO {
   value: string | number;

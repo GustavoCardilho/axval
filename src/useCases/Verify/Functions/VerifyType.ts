@@ -1,8 +1,8 @@
 import MethodsRepository from "../../../repositories/MethodsRepository";
-import { TypeVerifyInputArray } from "../verify.dto";
+import { TypeVerifyInputDTO } from "../verify.dto";
 
 export const VerifyType = (
-  type: string | TypeVerifyInputArray,
+  type: TypeVerifyInputDTO,
   value: string | number
 ) => {
   let verify;
@@ -10,47 +10,55 @@ export const VerifyType = (
 
   if (
     typeof value === "string" &&
-    (type == "email" || (Array.isArray(type) && type.indexOf("email") !== -1))
+    (type == "email" || (typeof type === "object" && type.field === "email"))
   ) {
     verify = MethodsRepository.email(value);
     count = verify ? count + 1 : count;
   }
+
   if (
     typeof value === "string" &&
-    (type == "phone" || (Array.isArray(type) && type.indexOf("phone") !== -1))
+    (type == "phone" || (typeof type === "object" && type.field === "phone"))
   ) {
     verify = MethodsRepository.phone(value);
     count = verify ? count + 1 : count;
   }
-  if (type == "cpf" || (Array.isArray(type) && type.indexOf("cpf") !== -1)) {
+
+  if (type == "cpf" || (typeof type === "object" && type.field === "cpf")) {
     verify = MethodsRepository.cpf(value);
     count = verify ? count + 1 : count;
   }
+
   if (
     typeof value === "string" &&
-    (type == "uuid" || (Array.isArray(type) && type.indexOf("uuid") !== -1))
+    (type == "uuid" || (typeof type === "object" && type.field === "uuid"))
   ) {
     verify = MethodsRepository.uuid(value);
     count = verify ? count + 1 : count;
   }
+
   if (
     typeof value === "number" &&
-    (type == "number" || (Array.isArray(type) && type.indexOf("number") !== -1))
+    (type == "number" ||
+      (typeof type === "object" && type.format === 'number'))
   ) {
     verify = MethodsRepository.number(value);
     count = verify ? count + 1 : count;
   }
+
   if (
     typeof value === "string" &&
-    (type == "string" || (Array.isArray(type) && type.indexOf("string") !== -1))
+    (type == "string" ||
+      (typeof type === "object" && type.format === "string"))
   ) {
     verify = MethodsRepository.string(value);
     count = verify ? count + 1 : count;
   }
 
-  if (Array.isArray(type) && count !== type.length) {
-    console.log(type.length, count);
-    verify = false;
+  if (typeof type === "object") {
+    if (Object.keys(type).length != count) {
+      verify = false;
+    }
   }
 
   return verify;
