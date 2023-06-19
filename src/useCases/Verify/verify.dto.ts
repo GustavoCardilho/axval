@@ -19,7 +19,6 @@ export type TypeVerifyInput =
   | "string"
   | "number";
 
-
 export interface VerifyInputDTO {
   value: string | number;
   type: TypeVerifyInputDTO;
