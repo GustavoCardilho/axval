@@ -2,14 +2,24 @@ import { MaskInputDTO, ResponseMaskDTO } from "./mask.dto";
 
 export const MaskMethod = (input: MaskInputDTO): ResponseMaskDTO => {
   try {
-    const { value, mask } = input;
+    let { value, mask } = input;
 
     let masked = "";
     let valueIndex = 0;
 
+    const regexValue = /[^a-zA-Z]/g;
+
+    const removeCharacters = input.isRemoveCharacters == false ? input.isRemoveCharacters : true;
+    const representativeCharacter = input.representativeCharacter || "0";
+
+    if (regexValue.test(value) && removeCharacters) {
+      const regex = /[^0-9]/g;
+      value = value.replace(regex, "");
+    }
+
     for (let i = 0; i < mask.length; i++) {
-      if (mask[i] === "0") {
-        masked += value[valueIndex] || ""; // Adiciona o valor de value[valueIndex] se existir, caso contrário adiciona uma string vazia
+      if (mask[i] === representativeCharacter) {
+        masked += value[valueIndex] || "";
         valueIndex++;
       } else {
         masked += mask[i];
