@@ -4,9 +4,9 @@ import Axval from "../../index";
 test("Verify", () => {
   const verify = Axval.verify({
     type: {
-      field: "cpf",
+      field: "phone",
     },
-    value: 53997138885,
+    value: "15996099414",
   });
 
   console.log(verify);
